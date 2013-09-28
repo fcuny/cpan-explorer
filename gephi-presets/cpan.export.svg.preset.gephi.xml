@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_10" class="java.beans.XMLDecoder"> 
+ <object class="gephi.properties.EditablePropertiesPersistance"> 
+  <void property="fileTitle"> 
+   <string>export-cpan</string> 
+  </void> 
+  <void property="fileType"> 
+   <string>gephi.io.export.ExporterSVG</string> 
+  </void> 
+  <void property="propertiesName"> 
+   <void method="add"> 
+    <string>showNodes</string> 
+   </void> 
+   <void method="add"> 
+    <string>showEdges</string> 
+   </void> 
+   <void method="add"> 
+    <string>showLabels</string> 
+   </void> 
+   <void method="add"> 
+    <string>fontSet</string> 
+   </void> 
+   <void method="add"> 
+    <string>richGraphPreset</string> 
+   </void> 
+   <void method="add"> 
+    <string>curvedEdges</string> 
+   </void> 
+   <void method="add"> 
+    <string>blackBicolorBidirectionnalEdges</string> 
+   </void> 
+   <void method="add"> 
+    <string>showMiniEdgeLabels</string> 
+   </void> 
+   <void method="add"> 
+    <string>showWhiteBorderedLabels</string> 
+   </void> 
+   <void method="add"> 
+    <string>autoComputeParameters</string> 
+   </void> 
+   <void method="add"> 
+    <string>addedRadius</string> 
+   </void> 
+   <void method="add"> 
+    <string>arrowsAddedRadius</string> 
+   </void> 
+   <void method="add"> 
+    <string>arrowSize</string> 
+   </void> 
+   <void method="add"> 
+    <string>miniLabelAddedRadius</string> 
+   </void> 
+   <void method="add"> 
+    <string>miniLabelFontSize</string> 
+   </void> 
+   <void method="add"> 
+    <string>miniLabelMaxChar</string> 
+   </void> 
+   <void method="add"> 
+    <string>nodeBorderWidth</string> 
+   </void> 
+   <void method="add"> 
+    <string>uniEdgeWidth</string> 
+   </void> 
+   <void method="add"> 
+    <string>biEdgeWidth</string> 
+   </void> 
+   <void method="add"> 
+    <string>labelStrokeWidth</string> 
+   </void> 
+   <void method="add"> 
+    <string>darkerLabels</string> 
+   </void> 
+  </void> 
+  <void property="propertiesValue"> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <null/> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>false</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>true</boolean> 
+   </void> 
+   <void method="add"> 
+    <boolean>false</boolean> 
+   </void> 
+   <void method="add"> 
+    <float>3.577709</float> 
+   </void> 
+   <void method="add"> 
+    <float>2.8621671</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.7155418</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.89442724</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.17888544</float> 
+   </void> 
+   <void method="add"> 
+    <int>20</int> 
+   </void> 
+   <void method="add"> 
+    <float>0.010666666</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.005333333</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.021333331</float> 
+   </void> 
+   <void method="add"> 
+    <float>0.01</float> 
+   </void> 
+   <void method="add"> 
+    <boolean>false</boolean> 
+   </void> 
+  </void> 
+ </object> 
+</java> 

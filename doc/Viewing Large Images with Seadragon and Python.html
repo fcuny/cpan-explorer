@@ -1,0 +1,539 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and Python  « Itinerant Source</title>
+<meta name="generator" content="WordPress.com"> 
+<link rel="stylesheet" href="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Itinerant Source RSS Feed" href="http://blog.kapilt.com/feed/">
+<link rel="pingback" href="http://blog.kapilt.com/xmlrpc.php">
+		<script src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/remote-login.html" type="text/javascript"></script>
+		<style type="text/css">
+#flickr_badge_source_txt {padding:0; font: 11px Arial, Helvetica, Sans serif; color:#666666;}
+#flickr_badge_icon {display:block !important; margin:0 !important; border: 1px solid rgb(0, 0, 0) !important;}
+#flickr_icon_td {padding:0 5px 0 0 !important;}
+.flickr_badge_image {text-align:center !important;}
+.flickr_badge_image img {border: 1px solid black !important;}
+#flickr_badge_uber_wrapper {width:150px;}
+#flickr_www {display:block; text-align:center; padding:0 10px 0 10px !important; font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+#flickr_badge_uber_wrapper a:hover,
+#flickr_badge_uber_wrapper a:link,
+#flickr_badge_uber_wrapper a:active,
+#flickr_badge_uber_wrapper a:visited {text-decoration:none !important; background:inherit !important;color:#3993ff;}
+#flickr_badge_wrapper {background-color:#ffffff;border: solid 1px #000000}
+#flickr_badge_source {padding:0 !important; font: 11px Arial, Helvetica, Sans serif !important; color:#666666 !important;}
+</style>
+<link rel="alternate" type="application/rss+xml" title="Itinerant Source » Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and&nbsp;Python Comments Feed" href="http://blog.kapilt.com/2008/11/30/viewing-large-images-openlayers-gsiv-modestmaps-deepzoom-and-python/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() { oldonload(); func(); }
+	}
+}
+/* ]]> */
+</script>
+<link rel="stylesheet" href="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/global.css" type="text/css">
+<script type="text/javascript" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.kapilt.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.kapilt.com/wp-includes/wlwmanifest.xml"> 
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+	<link rel="introspection" type="application/atomserv+xml" title="Atom API" href="http://blog.kapilt.com/wp-app.php">
+<link rel="shortcut icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/3c906e874cc0b7361487097fc04b0f0c?s=16&amp;d=http://s.wordpress.com/favicon.ico">
+<link rel="icon" type="image/x-icon" href="http://www.gravatar.com/blavatar/3c906e874cc0b7361487097fc04b0f0c?s=16&amp;d=http://s.wordpress.com/favicon.ico">
+<link rel="apple-touch-icon" href="http://www.gravatar.com/blavatar/1630a9deba420111303d4191ab273ecf?s=158&amp;d=http://s.wordpress.com/wp-content/themes/h4/i/webclip.png">
+<link rel="openid.server" href="http://kapilt.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://kapilt.wordpress.com/">
+<style type="text/css">
+#headerimage {
+	background: url(http://s2.wordpress.com/wp-content/themes/pub/mistylook/img/misty.jpg) no-repeat;
+}
+</style>
+</head><body id="section-index">
+
+
+<div id="navigation">
+<ul>
+	<li><a href="http://blog.kapilt.com/" title="Home">Home</a></li>
+		<li class="page_item page-item-2"><a href="http://blog.kapilt.com/about/" title="About">About</a></li>
+	<li class="search"><form method="get" id="searchform" action="http://blog.kapilt.com"><input class="textbox" value="" name="s" id="s" type="text"><input id="searchsubmit" value="Search" type="submit"></form></li>
+</ul>
+</div><!-- end id:navigation -->
+
+
+<div id="container">
+
+
+<div id="header">
+<h1><a href="http://blog.kapilt.com/" title="Itinerant Source">Itinerant Source</a></h1>
+<h2>Python and Zope Programming</h2>
+</div><!-- end id:header -->
+
+
+<div id="feedarea">
+<dl>
+	<dt><strong>Feed on</strong></dt>
+	<dd><a href="http://blog.kapilt.com/feed/">Posts</a></dd>
+	<dd><a href="http://blog.kapilt.com/comments/feed/">Comments</a></dd>		
+</dl>
+</div><!-- end id:feedarea -->
+
+  
+  <div id="headerimage">
+</div><!-- end id:headerimage -->
+<div id="content">
+<div id="content-main">
+		
+						
+			<div class="post hentry category-python" id="post-25">
+				<div class="posttitle">
+					<h2>Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and&nbsp;Python</h2>
+					<p class="post-info">November 30, 2008 by <a href="http://blog.kapilt.com/author/kapilt/" title="Posts by kapilt">kapilt</a>  </p>
+				</div>
+				
+				<div class="entry">
+					<div class="snap_preview"><p>Lately
+I’ve been experimenting with displaying very large images on the
+internet via a web browser, with pan and zoom functionality. The guts
+of this functionality are the same regardless of implementation. On the
+server, a tile cutter processes a large image, and constructs an image
+pyramid. The image pyramid is a hierarchical structure composed of n
+levels of the same image at different resolutions. Starting with the
+bottom level as the original image, each successive level reduces the
+image size by half, and the process is repeated log_2( max( width,
+height)) times until finally an image of only 1 pixel (average of
+entire image) is generated as the top of the pyramid. Each level’s
+image is split into a set of fixed size tiles. A web browser client
+implementation ( flash, ajax, etc) constructs&nbsp; a zoom interface,
+that responds to zoom in events by moving the viewport progressively
+further down the pyramid, showing tile images of the larger resolution
+to give the effect of zooming into an image. A nice illustrated write
+up of the concept can be found <a href="http://gasi.ch/blog/inside-deep-zoom-1/">here</a>. I’ve probably made it sound more complicated than it really is.</p>
+<p>The initial implementation I was working with utilized <a href="http://openlayers.org/">OpenLayers</a>, which implements a client for accessing OpenGIS Web Feature Servers (<a href="http://www.opengeospatial.org/standards/wfs">WFS</a>) and Web Mapping Servers (<a href="http://www.opengeospatial.org/standards/wms">WMS</a>).
+Unfortunately the size of the library seems to be constantly increasing
+(~200K in the last year) and currently weighs in at 560K uncompressed,
+and requires a special implementation to serve up the tile images, ie.
+a WMS Compliant system, in this case <a href="http://tilecache.org/">TileCache</a>. For scaling and efficiency purposes, I’d much prefer to directly serve these images off a <a href="http://en.wikipedia.org/wiki/Content_Delivery_Network">CDN</a>, disk (<a href="http://nginx.net/">nginx</a>), or via <a href="http://varnish.projects.linpro.no/">varnish</a>
+and bypass any application code. Additionally the sheer size of the
+OpenLayers code was unwieldy for the integrations requirements I had,
+which did not include any GIS functionality.</p>
+<p>Surveying the land for other non-commercial image viewers, turned up a few of interest. <a href="http://code.google.com/p/panojs/">GSIV</a>
+( Giant Scalable Image Viewer), was a fairly basic but capable
+javascript based viewer, that fit my requirements bill, small size at
+26Kb uncompressed, and focused on pan and zoom functionality (<a href="http://www.mojavelinux.com/cooker/demos/gsv/">demo</a>).
+However as a project it appears to be abandoned, and hasn’t been
+touched in two years, although several patches have been submitted
+which retrofit the implementation using jquery are extant.</p>
+<p>I came across <a href="http://modestmaps.com/">ModestMaps</a> next, which is a flash (2 &amp; 3 ) based implementation, with a small size (<a href="http://modestmaps.com/example.html">demo</a>).
+One nice feature of modest maps, is that it performs interpolation
+between successive levels giving a smooth zoom experience to an end
+user unlike somewhat jerky experience that GSIV produced. Unfortunately
+being flash based meant a whole different chain of development tools. I
+looked around at what was available for an opensource flash compiler
+toolchain and found <a href="http://www.mtasc.org/">MTASC</a> (Motion Twin Action Script Compiler ) and <a href="http://www.haxe.org/">Haxe</a>.
+In the end i decided against it, partly due to its GIS focus, and the
+customization/ maintenance cost for developing on propretiary platform
+(Flash). Despite that, i think its the best of the opensource viewer
+implementations if your already have/use an adobe flash development
+stack.</p>
+<p>I was set on using GSIV, and then i came across a<a href="http://ajaxian.com/archives/seadragon"> blurb on ajaxian</a>
+about Seadragon Ajax and Deep Zoom from Microsoft’s Live Labs.
+Microsoft’s done some impressive work with image manipulation over the
+last few years. The <a href="http://www.ted.com/index.php/talks/blaise_aguera_y_arcas_demos_photosynth.html">PhotoSynth TED talk</a> is one of the most impressive technology demos i’ve seen to date. <a href="http://en.wikipedia.org/wiki/Deep_Zoom">Deep Zoom</a> is a <a href="http://en.wikipedia.org/wiki/Silverlight">SilverLight</a> technology ( more propretiary platform lockin), that allows for multiscale image zooming with smooth zooming. The<a href="http://livelabs.com/seadragon-ajax/library/"> Seadragon Ajax</a>
+is a javascript implementation of the same functionality in a 154k
+library ( 20k minimized and gzipped). It fit the bill perfectly,
+standards (javascript) based, image zoom and pan, with a great user
+experience. One problem unlike all the other tools mentioned here,
+which have python based tile cutting implementations, Deep Zoom was
+utilizing a Windows only based program to process images and cut tiles.
+I had a couple of hundred gigabytes of images to cut, and not a windows
+system in sight. But based on this <a href="http://gasi.ch/blog/inside-deep-zoom-2/">excellent blog write up by  Daniel Gasienica</a>,
+I constructed a python program using PIL that can be used as a command
+line tool or library for constructing Deep Zoom Compatible image
+pyramids. It can be found <a href="http://kapilt.com/files/seadragon.py">here</a>,
+hopefully its useful to others. As a bonus, it runs in a fraction of
+the memory (1/6 by my measurements) needed by the GSIV image tile
+cutter and faster as well ( 100 images in 5m vs 1.25hr). Unfortunately
+the Seadragon Ajax Library is not opensource, but non commercial usage
+seems to be okay with the license, and i’ll give it over to some
+lawyers to figure it out.</p>
+<p>To process the several hundred gigabytes of images, i utilized this library and wrote a batch driver utilizing&nbsp; <a href="http://pyprocessing.berlios.de/">pyprocessing remote queues</a>, a small <a href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and <a href="http://code.google.com/p/cloudcontrol/">cloudcontrol</a> to process the images across a cluster, but thats left as an implementation detail for the reader <img src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/icon_smile.gif" alt=":-)" class="wp-smiley"> </p>
+<p><a href="http://kapilt.com/files/seadragon.py">Python Deep Zoom TileCutter</a></p>
+</div>									</div>
+		
+				<p class="postmetadata">Posted in <a href="http://en.wordpress.com/tag/python/" title="View all posts in python" rel="category tag">python</a> | 14 Comments</p>
+				
+<!-- You can start editing here. -->
+
+<h3 id="comments">14 Responses to “Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and&nbsp;Python”</h3>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-68">
+		<div id="div-comment-68">
+		<div class="cmtinfo"><em> on <a href="#comment-68" title="">November 30, 2008 at 6:03 am</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/139f37ae067ee7e473f71e849f63e82f.png" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://akishore.com/" rel="external nofollow" class="url">Aseem Kishore</a></cite></div>
+						
+			<p>Hi Kapil,</p>
+<p>I’m part of the Seadragon Ajax team, and it’s great to hear that you
+like our work! Please feel free to pass on feedback as you use it. =)</p>
+<p>Best,<br>
+Aseem</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-70">
+		<div id="div-comment-70">
+		<div class="cmtinfo"><em> on <a href="#comment-70" title="">November 30, 2008 at 5:26 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/ba08a1813ff5e44f655ee9ea58d1c992.png" class="avatar avatar-48" width="48" height="48"> <cite>Henning</cite></div>
+						
+			<p>Sounds interesting. As you already have investigated those libraries, you could perhaps help me.<br>
+I was thinking about creating an AJAX function plotter (using
+matplotlib). Until now I only found OpenLayers but I don’t need these
+GIS features. What would you suggest for my project? I am mainly
+interested in the interactive dragging and zooming feature. The image
+would be generated on the fly.</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-71">
+		<div id="div-comment-71">
+		<div class="cmtinfo"><em> on <a href="#comment-71" title="">November 30, 2008 at 7:44 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/81955202e1a0524d206bd3f7b3967065.png" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://iipimage.sourceforge.net/" rel="external nofollow" class="url">Ruven</a></cite></div>
+						
+			<p>Another image viewer you may be interested in is IIPImage (<a href="http://iipimage.sf.net/" rel="nofollow">http://iipimage.sf.net</a>)
+which is a fully Open Source system with various alternative clients
+such as a flash, java and ajax. I’m the maintainer, so possibly biased <img src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/icon_wink.gif" alt=";)" class="wp-smiley"> </p>
+<p>One advantage is that we can run off a single TIFF file rather than
+having to store thousands of tile pieces. On the other hand, it
+requires you to install an FCGI server.</p>
+<p>Anyway, it’ll be interesting to see how this Deep Zoom format develops.</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-74">
+		<div id="div-comment-74">
+		<div class="cmtinfo"><em> on <a href="#comment-74" title="">December 1, 2008 at 9:24 am</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/7e5c476f7ed6fcbb67eee738e304f066.jpeg" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://mockit.blogspot.com/" rel="external nofollow" class="url">Malthe</a></cite></div>
+						
+			<p>Long
+time ago I had a similar requirement; I ended up converting all image
+files to uncompressed 32-bit TIFF files and wrote the image cutter in
+C, then piped the result to an imagemagick converter.</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-75">
+		<div id="div-comment-75">
+		<div class="cmtinfo"><em> on <a href="#comment-75" title="">December 1, 2008 at 5:28 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/0491830b8e929f46ffba2b9e3920b307.png" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://crschmidt.net/" rel="external nofollow" class="url">Christopher Schmidt</a></cite></div>
+						
+			<p>It looks like you’ve already moved on, but I wanted to point out two things about OpenLayers for the record:</p>
+<p> 1. OpenLayers supports custom build profiles including only the
+pieces you care about. A simple map — just dragging and WMS tiles —
+clocks in at about 110k — and has been within 20% of that for most of
+the 2.x series (now two years running). Information on using the build
+tools to build your own build are available at <a href="http://trac.openlayers.org/wiki/Profiles" rel="nofollow">http://trac.openlayers.org/wiki/Profiles</a>
+. Once you take the 110k and run it through gzip, you’re down to ~25k —
+not that much larger than the binary ModestMaps builds that I checked
+out (which clocked in at 18kb, but didn’t compress much/at all with
+gzip).</p>
+<p> 2. OpenLayers can load all kinds of tiles, including tiles stored in a flat filesystem on a CDN or similar. <a href="http://trac.openlayers.org/wiki/UsingCustomTiles" rel="nofollow">http://trac.openlayers.org/wiki/UsingCustomTiles</a>
+documents how, and even documents how to set up OpenLayers for
+projectionless images, which is what you’re currently working with
+based on my quick skim.</p>
+<p>This isn’t to say that OpenLayers is always the right tool, but
+using the TMS layer and custom profiles would probably significantly
+change the experience with regard to the two complaints that you had
+with OpenLayers.</p>
+<p>(Also, I’m clearly biased an OpenLayers + TileCache developer.)</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-76">
+		<div id="div-comment-76">
+		<div class="cmtinfo"><em> on <a href="#comment-76" title="">December 1, 2008 at 8:59 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/317094104136ef2e6487bf5a61fb8217.png" class="avatar avatar-48" width="48" height="48"> <cite>Vince</cite></div>
+						
+			<p>@ Henning,</p>
+<p>Have you tried Flot:</p>
+<p><a href="http://code.google.com/p/flot/" rel="nofollow">http://code.google.com/p/flot/</a></p>
+<p>Vince</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="pingback even thread-even depth-1" id="comment-77">
+		<div id="div-comment-77">
+		<div class="cmtinfo"><em> on <a href="#comment-77" title="">December 2, 2008 at 12:19 am</a></em>  <cite><a href="http://botd.wordpress.com/2008/12/01/top-posts-948/" rel="external nofollow" class="url">Top Posts « WordPress.com</a></cite></div>
+						
+			<p>[...]
+Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and
+Python Lately I’ve been experimenting with displaying very large images
+on the internet via a web browser, with pan and [...] [...]</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-78">
+		<div id="div-comment-78">
+		<div class="cmtinfo"><em> on <a href="#comment-78" title="">December 2, 2008 at 5:22 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/51add0b18aa2a784ee43ecd046b99724.png" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://www.ridethecity.com/" rel="external nofollow" class="url">Jordan Anderson</a></cite></div>
+						
+			<p>I’m
+currently using OpenLayers and TileCache with Amazon’s new CoudFront
+CDN service on a development version of ridethecity.com (soon to be
+released to the public).</p>
+<p>I used TileCache with Geoserver to generate several thousand PNG tiles using its seed script. Then I:</p>
+<p>1. Uploaded the images to Amazon S3 using the directory structure generated by TileCache<br>
+2. Created a CloudFront distribution<br>
+3. Turned off both TileCache and Geoserver (since I seeded 100% of the
+zoom levels and extent I’m dealing with — in my case, New York City and
+environs)<br>
+4. Used OpenLayers’ Tile Map Service (TMS) support to grab the correct tiles from CloudFront</p>
+<p>Wow, it’s fast. And my bill last month — even after all the PNG PUT
+requests and prorating to account for the partial month of CloudFront
+service — was just under one dollar.</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="pingback even thread-even depth-1" id="comment-79">
+		<div id="div-comment-79">
+		<div class="cmtinfo"><em> on <a href="#comment-79" title="">December 10, 2008 at 11:02 pm</a></em>  <cite><a href="http://dragonosticism.wordpress.com/2008/12/10/deep-zoom-image-creation-with-python/" rel="external nofollow" class="url">Deep Zoom Image creation with Python « Dragonosticism</a></cite></div>
+						
+			<p>[...]
+images into DZI format. In addition to Python, you’ll need the Python
+Imaging Library. See his blog post for more information, along with an
+analysis of why he chose DZI over other zooming [...]</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment byuser comment-author-igilman odd alt thread-odd thread-alt depth-1" id="comment-80">
+		<div id="div-comment-80">
+		<div class="cmtinfo"><em> on <a href="#comment-80" title="">December 10, 2008 at 11:12 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/06a26aadf9c62b93ec5d5d0154f6e3cf.png" class="avatar avatar-48" width="48" height="48"> <cite>igilman</cite></div>
+						
+			<p>Kapil,</p>
+<p>Thank you for making this Python script! It’s a great service to the
+Deep Zoom community. I’ve mentioned it now on my Dragonosticism blog: </p>
+<p><a href="http://dragonosticism.wordpress.com/2008/12/10/deep-zoom-image-creation-with-python/" rel="nofollow">http://dragonosticism.wordpress.com/2008/12/10/deep-zoom-image-creation-with-python/</a></p>
+<p>I tried it on a 5,000 pixel square image, and it worked perfectly. I
+then tried it on the 20,000 pixel square World Wide Music Scene image
+from the Seadragon Ajax Gallery, and it ground my system to a halt and
+then failed with a memory error. This isn’t surprising, as most tools
+break down at those sizes, but we’re hoping to help get us all past
+that. </p>
+<p>Are you planning on continuing to develop this script?</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment byuser comment-author-kapilt bypostauthor even thread-even depth-1" id="comment-81">
+		<div id="div-comment-81">
+		<div class="cmtinfo"><em> on <a href="#comment-81" title="">December 11, 2008 at 2:52 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/55ebe3141eb327cb93a05159fd50d70a.png" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://kapilt.wordpress.com/" rel="external nofollow" class="url">kapilt</a></cite></div>
+						
+			<p>@christopher
+thanks for the clarifications regarding openlayers build profiles and
+custom tile options. its a very capable project. I recently went to
+SearchCampDC ( <a href="http://barcamp.org/SearchCampDC" rel="nofollow">http://barcamp.org/SearchCampDC</a>
+) and saw several impressive gis applications built on top of
+openlayers. However, for this particular use primarily as a large image
+viewer, the continuous/fluid zoom offered by deepzoom offers a better
+end user experience imo.</p>
+<p>@igilman for jpeg images, the memory usage seems to be total pixel
+size (w*h) * 4.3. The largest image i’m working with is about 110M
+pixels. I was unable to find the source image for the referenced world
+wide music scene, and the very very large image group on flickr all
+seem to be well below 110M pixels. most of the memory constraints seem
+to be related to the underlying image functionality offered by the
+python image library (PIL). While there are other cross platform
+libraries, their installation and language bindings for python are
+typically non trivial on non linux platforms (my production environment
+for this app is solaris). In terms of future development, if there are
+additional feature requests, i’m open to them, and if there is interest
+i can set up a project on a hosted platform. alternatively if there’s
+interest in folding this into a deep zoom hosted download, i’d be happy
+to sign it over. outside of distribution as a python egg for easier
+installation, and a verbose/progress option, i’m pretty happy with the
+script.</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment byuser comment-author-igilman odd alt thread-odd thread-alt depth-1" id="comment-82">
+		<div id="div-comment-82">
+		<div class="cmtinfo"><em> on <a href="#comment-82" title="">December 11, 2008 at 7:02 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/06a26aadf9c62b93ec5d5d0154f6e3cf.png" class="avatar avatar-48" width="48" height="48"> <cite>igilman</cite></div>
+						
+			<p>@kapilt
+The full music image isn’t available online. I agree it’s hard to find
+big images; that’s one of the things we’re trying to fix! One large one
+(half a gigapixel) is here:</p>
+<p><a href="http://onemansblog.com/2008/04/04/gigapixel-photo-of-1906-san-francisco-earthquake-aftermath/" rel="nofollow">http://onemansblog.com/2008/04/04/gigapixel-photo-of-1906-san-francisco-earthquake-aftermath/</a></p>
+<p>To deal with large images properly, you may have to get aggressive
+about purging memory. The music image successfully loaded into memory,
+and all but the highest resolution tile set was correctly created with
+your script; it was just the last set of tiles where it ran out of
+memory. </p>
+<p>As for feature requests, besides handling larger images
+successfully, the only other thing I’d want at the moment would be some
+sort of progress indication (like a verbose mode). </p>
+<p>I’ll continue pointing people in your direction, and we’ll see what
+sort of interest the script gets. I’m excited about all the new
+developments!</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="comment byuser comment-author-gasi even thread-even depth-1" id="comment-83">
+		<div id="div-comment-83">
+		<div class="cmtinfo"><em> on <a href="#comment-83" title="">December 15, 2008 at 6:32 pm</a></em> <img alt="" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/34e36e0508f23947d839a8bff4d413cd.jpeg" class="avatar avatar-48" width="48" height="48"> <cite><a href="http://gasi.ch/blog" rel="external nofollow" class="url">gasi</a></cite></div>
+						
+			<p>Hello Kapil<br>
+First of all, thanks for referencing the articles on my blog&nbsp;—I’m&nbsp;glad they helped you out.</p>
+<p>For anyone interested in incorporating very large images into their
+applications, check out the open source OpenZoom framework I’ve started
+at <a href="http://openzoom.org/" rel="nofollow">http://openzoom.org/</a><br>
+Basically, OpenZoom provides you with some building blocks to create
+ZUI applications like mapping, e-commerce, medical that need to present
+multi-scale images in formats such as Zoomify, Deep Zoom or others in a
+dynamic fashion.<br>
+To see some examples of things you can do with OpenZoom, I encourage you to check out my blog <a href="http://gasi.ch/blog/flex-multiscaleimage-component/" rel="nofollow">http://gasi.ch/blog/flex-multiscaleimage-component/</a> or tandem, a proof of concept for browsing Flickr at <a href="http://tandem.gasi.ch/" rel="nofollow">http://tandem.gasi.ch/</a></p>
+<p>Cheers,<br>
+Daniel</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-85">
+		<div id="div-comment-85">
+		<div class="cmtinfo"><em> on <a href="#comment-85" title="">December 19, 2008 at 3:34 am</a></em>  <cite><a href="http://gasi.ch/blog/openzoom-description-format/" rel="external nofollow" class="url">OpenZoom Description Format — RTFM / Daniel Gasienica</a></cite></div>
+						
+			<p>[...]
+Viewing Large Images - OpenLayers, GSIV, ModestMaps, DeepZoom, and
+Python — Create Deep Zoom Images on Windows, Mac and Linux with Python
+and PIL. [...]</p>
+			<br style="clear: both;">	
+		</div>
+</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br>
+
+  <div class="post-content">
+<p>
+	<span class="trackback"><a href="http://blog.kapilt.com/2008/11/30/viewing-large-images-openlayers-gsiv-modestmaps-deepzoom-and-python/trackback/">Trackback URI</a></span> | 
+	<span class="commentsfeed"><a href="http://blog.kapilt.com/2008/11/30/viewing-large-images-openlayers-gsiv-modestmaps-deepzoom-and-python/feed/">Comments RSS</a></span>
+</p>
+</div>
+
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://blog.kapilt.com/2008/11/30/viewing-large-images-openlayers-gsiv-modestmaps-deepzoom-and-python/#respond" style="display: none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://blog.kapilt.com/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input class="textbox" name="author" id="author" value="" size="22" tabindex="1" type="text">
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input class="textbox" name="email" id="email" value="" size="22" tabindex="2" type="text">
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input class="textbox" name="url" id="url" value="" size="22" tabindex="3" type="text">
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" id="submit" tabindex="5" value="Submit Comment" type="submit">
+<input name="comment_post_ID" value="25" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p>
+<p><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox">
+		<label for="subscribe" id="subscribe-label">Notify me of follow-up comments via email.</label></p>
+</form>
+
+
+</div>
+
+			</div>
+	
+		
+		<p align="center"></p>
+		
+	</div><!-- end id:content-main -->
+<div id="sidebar">
+<ul>
+<li class="sidebox"><h2>Archives</h2>		<ul>
+			<li><a href="http://blog.kapilt.com/2008/11/" title="November 2008">November 2008</a></li>
+	<li><a href="http://blog.kapilt.com/2008/07/" title="July 2008">July 2008</a></li>
+	<li><a href="http://blog.kapilt.com/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://blog.kapilt.com/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://blog.kapilt.com/2008/01/" title="January 2008">January 2008</a></li>
+	<li><a href="http://blog.kapilt.com/2007/11/" title="November 2007">November 2007</a></li>
+	<li><a href="http://blog.kapilt.com/2007/08/" title="August 2007">August 2007</a></li>
+	<li><a href="http://blog.kapilt.com/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://blog.kapilt.com/2006/09/" title="September 2006">September 2006</a></li>
+		</ul>
+</li>		<li class="sidebox">			<h2><a href="http://del.icio.us/kapilt">Bookmarks</a></h2><div id="delicious-box" style="border: medium none ; margin: 0pt; padding: 0pt;"> <ul id="delicious-list"><li><a href="http://www.loc.gov/standards/sru/specs/cql.html">CQL: the Contextual Query Language: Specifications (SRU: Search/Retrieval via URL, Standards, Library of Congress)</a></li><li><a href="http://jangle.org/">jangle.org</a></li><li><a href="http://lericson.blogg.se/code/2008/november/pylibmc-051.html">pylibmc</a></li><li><a href="http://sourceforge.net/projects/enomalism">Enomaly Elastic Computing</a></li><li><a href="http://www.convirture.com/wiki/index.php?title=Main_Page">ConVirt</a></li><li><a href="http://gate.ac.uk/">GATE, A General Architecture for Text Engineering</a></li><li><a href="http://www.zeromq.org/">zeromq: Fastest. Messaging. Ever.</a></li><li><a href="http://highscalability.com/numbers-everyone-should-know">AppEngine - Numbers Everyone Should Know</a></li><li><a href="http://blogs.digitar.com/jjww/2009/01/rabbits-and-warrens/">AMQP Server Comparison and Py</a></li><li><a href="https://launchpad.net/txamqp">txAMQP: Twisted AMQP in Launchpad</a></li></ul></div>
+			<script type="text/javascript" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/kapilt"></script>
+			<script type="text/javascript">
+			function showImage(img){ return (function(){ img.style.display='inline'; }) }
+			var ul = document.createElement('ul');
+			for (var i=0, post; post = Delicious.posts[i]; i++) {
+				var li = document.createElement('li');
+				var a = document.createElement('a');
+				a.setAttribute('href', post.u);
+				a.appendChild(document.createTextNode(post.d));
+				li.appendChild(a);
+				ul.appendChild(li);
+			}
+			ul.setAttribute('id', 'delicious-list');
+			document.getElementById('delicious-box').appendChild(ul);
+			</script>
+		</li>	<li class="sidebox">	<h2>Photos</h2><!-- Start of Flickr Badge -->
+<table id="flickr_badge_uber_wrapper" border="0" cellpadding="0" cellspacing="10"><tbody><tr><td><table id="flickr_badge_wrapper" border="0" cellpadding="0" cellspacing="10">
+<tbody><tr><td align="center">
+<a href="http://www.flickr.com/photos/k_vertigo/3017467267/"><img alt="DSC_0060.JPG" title="DSC_0060.JPG" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/3017467267_31165b2faa_t.jpg" border="0"></a><br><br><a href="http://www.flickr.com/photos/k_vertigo/3017463815/"><img alt="DSC_0059.JPG" title="DSC_0059.JPG" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/3017463815_e69a2d1edd_t.jpg" border="0"></a><br><br><a href="http://www.flickr.com/photos/k_vertigo/3018292436/"><img alt="DSC_0058.JPG" title="DSC_0058.JPG" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/3018292436_4472ec4cb4_t.jpg" border="0"></a><br><br><a href="http://www.flickr.com/photos/k_vertigo/">More Photos</a>
+</td></tr>
+</tbody></table>
+</td></tr></tbody></table>
+<!-- End of Flickr Badge -->
+
+		</li></ul>
+</div><!-- end id:sidebar -->
+</div><!-- end id:content -->
+</div><!-- end id:container -->
+<div id="footer">
+<p><a href="http://wordpress.com/" rel="generator">Blog at WordPress.com</a>. | Theme: Mistylook by <a href="http://wpthemes.info/" rel="designer">Sadish</a>.</p>
+<br class="clear">
+</div><!-- end id:footer -->
+<script type="text/javascript" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/analytics.js"></script>
+<script type="text/javascript">_amefin.setZoneId(20).track()</script><script src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/analytics" type="text/javascript"></script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/ga.js" type="text/javascript"></script>
+	
+<script type="text/javascript">
+var wpcomPageTracker = _gat._getTracker("UA-52447-2");
+wpcomPageTracker._setDomainName("none");
+wpcomPageTracker._setAllowLinker(true);
+wpcomPageTracker._initData();
+wpcomPageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/quant.js"></script>
+<script type="text/javascript">_qoptions = { labels:"adt.0,language.en" };_qacct="p-18-mFEk4J448M";quantserve();</script>
+<noscript><p><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none" height="1" width="1" alt="" /></p></noscript>
+<script src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'785435','v':'wpcom','user_id':'0','post':'25','subd':'kapilt'});
+ex_go({'crypt':'D6%7C%2CY1mqtiRa%3DV%26%7CQbTtZOw5UrDNB%7E-74y%2Cw2gxh.v7%2FdeIyyB%7C%2Bk%2CMFYido%3Fcv6P_Smz.Y51c%7EMH%5B0alflYUmJ66x%2539nU-%2BQ%5Bm3oV%2FUqiJ%3Fc%2C1jaDYI%269Ko9T75IY7uw3c%3DlSe%2BfF4_vced%256MddVvogBDnFWj9%7EAqEYUYw%26Y%7ClfBOZRycP2vi9-pa2-2KWJEJy4.uy%7CVs_d'});
+addLoadEvent(function(){linktracker_init('785435',25);});
+</script><img id="wpstats" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/g.gif" alt=""><img id="wpstats2" src="Viewing%20Large%20Images%20with%20Seadragon%20and%20Pythonhtml_files/g_002.gif" alt="" style="display: none;">
+
+</body></html>

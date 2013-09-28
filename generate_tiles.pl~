@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+sub generate {
+   my ($input_file,$input_format,$output_path,$output_name) = @_;
+   print "\nGenerating tiles for $input_file\n";
+   my $tmp = "$output_path/$output_name".'_files/';
+   `rm -Rf $tmp` if -f $tmp; 
+   `rm -f $output_path/$output_name` if -e "$output_path/$output_name";
+   print "./seadragon.py $input_file --format=$input_format --tile-size=512 --transform=antialias --name=$output_name --path=$output_path\n";
+   `./seadragon.py $input_file --format=$input_format --tile-size=512 --transform=antialias --name=$output_name --path=$output_path\n`;
+}
+
+generate('packages/packages.jpg',  'jpg', '../www/packages/viz/',  'packages');
+generate('authors/authors.jpg', 'jpg', '../www/authors/viz/', 'authors');
+#generate('community/community.jpg', 'jpg', '../www/community/viz/', 'community');
+
